@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3c40"/><stop offset="1" stop-color="#0c0d0e"/></linearGradient>
+<linearGradient id="ring1" x1="0.15" y1="0" x2="0.85" y2="1"><stop offset="0" stop-color="#f4f4f2"/><stop offset=".35" stop-color="#8d9096"/><stop offset=".6" stop-color="#2a2b2e"/><stop offset="1" stop-color="#b9bbc0"/></linearGradient>
+<linearGradient id="ring2" x1="0.8" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#050506"/><stop offset=".5" stop-color="#2b2c30"/><stop offset="1" stop-color="#6b6d73"/></linearGradient>
+<radialGradient id="glass" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#1a2230"/><stop offset=".7" stop-color="#0b0e14"/><stop offset="1" stop-color="#020203"/></radialGradient>
+<radialGradient id="sheen" cx=".3" cy=".25" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="glowR" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd23f" stop-opacity=".18"/><stop offset="1" stop-color="#ffd23f" stop-opacity="0"/></radialGradient>
+<clipPath id="lens"><circle cx="512" cy="512" r="262"/></clipPath>
+<clipPath id="L"><rect x="200" y="200" width="312" height="624"/></clipPath>
+<clipPath id="R"><rect x="512" y="200" width="312" height="624"/></clipPath>
+<g id="room" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="9">
+<path d="M300 330 L420 400 L420 650 L300 720"/>
+<path d="M420 400 L640 400 L740 330"/><path d="M420 650 L640 650 L740 720"/>
+<path d="M640 400 L640 650"/>
+<rect x="468" y="450" width="120" height="110"/><path d="M528 450 V560 M468 505 H588"/>
+</g>
+</defs>
+<rect width="1024" height="1024" fill="url(#bg)"/>
+<circle cx="512" cy="512" r="330" fill="url(#ring1)"/>
+<circle cx="512" cy="512" r="300" fill="url(#ring2)"/>
+<circle cx="512" cy="512" r="278" fill="#000"/>
+<circle cx="512" cy="512" r="262" fill="url(#glass)"/>
+<g clip-path="url(#lens)">
+<circle cx="512" cy="512" r="262" fill="url(#glowR)"/>
+<g clip-path="url(#L)"><rect x="250" y="250" width="262" height="524" fill="#d9d7d0" opacity=".13"/><use href="#room" stroke="#f4f2ea" opacity=".95"/></g>
+<g clip-path="url(#R)"><use href="#room" stroke="#ffd23f"/></g>
+<rect x="509" y="250" width="6" height="524" fill="#000" opacity=".55"/>
+<rect x="511" y="250" width="2" height="524" fill="#fff" opacity=".5"/>
+<circle cx="512" cy="512" r="262" fill="url(#sheen)"/>
+</g>
+<circle cx="512" cy="512" r="262" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="3"/>
+</svg>
