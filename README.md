@@ -57,7 +57,13 @@ https://youngestday.github.io/pitaba/docs/pitaba-guide.pdf
 3. 右側のカメラで、重なったビフォーに合わせてアフターを撮る
 4. 完成画面で「文字を入れる」を選び、「保存・共有」で保存する
 
-ホーム画面に追加すると、アプリのように起動できます。
+ホーム画面に追加すると、アプリのように起動できます（アイコンは `icons/`、Android 用の設定は `manifest.webmanifest`）。
+
+## アイコン
+
+- 金属の縁のレンズの中で、部屋の写真に赤い輪郭線と緑のカギ括弧が重なる絵（ChatGPT で作成）。
+- `icons/chatgpt/`：元の画像（180・192・512px）。`icons/apple-touch-icon.png`：iPhone 用 180px。`icons/icon-192.png`・`icon-512.png`：Android 用。`icon-maskable-512.png`：丸や角丸に切り抜かれても欠けないよう、暗い背景に小さめに置いた版。
+- `icons/icon-a〜e.svg`：最初に作った試作案（使っていない）。
 
 カメラを使うため https で開く必要があります（GitHub Pages で公開しています）。
 
