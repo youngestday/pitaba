@@ -12,7 +12,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<meta name="zengo-version" content="2026.11.14-12">
+<meta name="zengo-version" content="2026.11.14-13">
 <style>
 /* 撮影画面：左にビフォー、右にライブカメラ。横向きでは操作列が右、縦向きでは下。暗いカメラ画面に固定。 */
 :root {
@@ -863,6 +863,7 @@ button.primary { background: var(--accent); color: #111; border-color: var(--acc
   const FONT_MINCHO = '"Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", YuMincho, "Noto Serif JP", "Noto Serif CJK JP", serif';
   const FONT_DIDOT = 'Didot, "Bodoni 72", "Bodoni MT", "Playfair Display", Georgia, "Times New Roman", serif';
   const FONT_MODERN = '"Avenir Next", Avenir, Futura, "Century Gothic", "Helvetica Neue", Arial, sans-serif';
+  const FONT_HAND = '"Marker Felt", "Chalkboard SE", "Bradley Hand", Noteworthy, "Comic Sans MS", "Segoe Print", cursive, ' + '-apple-system, sans-serif';
   const FONT_ROUND = '"Hiragino Maru Gothic ProN", "Arial Rounded MT Bold", "M PLUS Rounded 1c", "Rounded Mplus 1c", ' + FONT_SANS;
   // 文字を1字ずつ、字間をあけて書く（letterSpacing に対応していない端末でも同じ見た目にする）
   function spacedWidth(g, t, sp) { let w = 0; for (const ch of t) w += g.measureText(ch).width + sp; return w - sp; }
@@ -874,7 +875,7 @@ button.primary { background: var(--accent); color: #111; border-color: var(--acc
       box(g, t, fs) { const pad = fs * 0.55; return { w: g.measureText(t).width + pad * 2, h: fs + pad * 1.2 }; },
       draw(g, t, x, y, b, fs, a) {
         const pad = fs * 0.55;
-        g.fillStyle = a ? 'rgba(255,210,63,0.95)' : 'rgba(0,0,0,0.6)'; roundRect(g, x, y, b.w, b.h, b.h / 2); g.fill();
+        g.fillStyle = a ? 'rgba(255,255,255,0.92)' : 'rgba(0,0,0,0.6)'; roundRect(g, x, y, b.w, b.h, b.h / 2); g.fill();
         g.fillStyle = a ? '#111111' : '#ffffff'; g.fillText(t, x + pad, y + b.h / 2 + fs * 0.04);
       } },
     { key: 'mincho', name: '明朝', pvFont: FONT_MINCHO, pvWeight: 600,
@@ -908,16 +909,18 @@ button.primary { background: var(--accent); color: #111; border-color: var(--acc
         if (a || out) { g.strokeStyle = '#111111'; g.lineWidth = lw; g.strokeRect(x + lw / 2, y + lw / 2, b.w - lw, b.h - lw); }
         g.fillStyle = a ? '#111111' : '#ffffff'; spacedText(g, t, x + fs * 0.7, y + b.h / 2 + fs * 0.03, fs * this.sp);
       } },
-    { key: 'pop', name: 'ポップ', pvFont: FONT_ROUND, pvWeight: 800,
-      text: (a) => a ? 'AFTER!' : 'BEFORE', font: (fs) => `800 ${fs * 1.05}px ${FONT_ROUND}`, sp: 0,
-      box(g, t, fs) { const pad = fs * 0.6; return { w: g.measureText(t).width + pad * 2, h: fs * 1.8 }; },
+    { key: 'pop', name: 'ポップ', pvFont: FONT_HAND, pvWeight: 900,
+      text: (a) => a ? 'AFTER!' : 'BEFORE', font: (fs) => `900 ${fs * 1.15}px ${FONT_HAND}`, sp: 0,
+      box(g, t, fs) { return { w: g.measureText(t).width + fs * 1.9, h: fs * 2.3 }; },
       draw(g, t, x, y, b, fs, a) {
-        // 丸い文字のステッカー風。白い縁どりで、少し傾ける。ビフォーは青、アフターはオレンジ
-        g.save(); g.translate(x + b.w / 2, y + b.h / 2); g.rotate((a ? 3 : -3) * Math.PI / 180);
+        // 手書き風の太い文字のステッカー。傾けず、楕円の形。白い縁どり。ビフォーは青、アフターはオレンジ
+        g.save(); g.translate(x + b.w / 2, y + b.h / 2);
         const lw = fs * 0.14;
-        g.fillStyle = '#ffffff'; roundRect(g, -b.w / 2 - lw, -b.h / 2 - lw, b.w + lw * 2, b.h + lw * 2, b.h / 2 + lw); g.fill();
-        g.fillStyle = a ? '#ff7a2f' : '#3d7bf2'; roundRect(g, -b.w / 2, -b.h / 2, b.w, b.h, b.h / 2); g.fill();
-        g.fillStyle = '#ffffff'; g.textAlign = 'center'; g.fillText(t, 0, fs * 0.05);
+        g.fillStyle = '#ffffff'; g.beginPath(); g.ellipse(0, 0, b.w / 2 + lw, b.h / 2 + lw, 0, 0, Math.PI * 2); g.fill();
+        g.fillStyle = a ? '#ff7a2f' : '#3d7bf2'; g.beginPath(); g.ellipse(0, 0, b.w / 2, b.h / 2, 0, 0, Math.PI * 2); g.fill();
+        // 同じ色でふちを足して、文字をさらに太くする
+        g.textAlign = 'center'; g.lineJoin = 'round'; g.lineWidth = fs * 0.05; g.strokeStyle = "#ffffff"; g.fillStyle = '#ffffff';
+        g.strokeText(t, 0, fs * 0.08); g.fillText(t, 0, fs * 0.08);
         g.restore();
       } },
   ];
