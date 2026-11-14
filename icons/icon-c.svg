@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3c40"/><stop offset="1" stop-color="#0c0d0e"/></linearGradient>
+<linearGradient id="ring1" x1="0.15" y1="0" x2="0.85" y2="1"><stop offset="0" stop-color="#f4f4f2"/><stop offset=".35" stop-color="#8d9096"/><stop offset=".6" stop-color="#2a2b2e"/><stop offset="1" stop-color="#b9bbc0"/></linearGradient>
+<linearGradient id="ring2" x1="0.8" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#050506"/><stop offset=".5" stop-color="#2b2c30"/><stop offset="1" stop-color="#6b6d73"/></linearGradient>
+<linearGradient id="back" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8d4cb"/><stop offset="1" stop-color="#bdb8ad"/></linearGradient>
+<linearGradient id="lw" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6f6c66"/><stop offset="1" stop-color="#a29e95"/></linearGradient>
+<linearGradient id="rw" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#cfcac0"/><stop offset="1" stop-color="#e4e0d7"/></linearGradient>
+<linearGradient id="ceil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bdbab3"/><stop offset="1" stop-color="#ebe8e0"/></linearGradient>
+<linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a5a2c"/><stop offset="1" stop-color="#4a2c12"/></linearGradient>
+<radialGradient id="win" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#fffdf2"/><stop offset="1" stop-color="#e9e2c8"/></radialGradient>
+<radialGradient id="vig" cx=".5" cy=".5" r=".5"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></radialGradient>
+<radialGradient id="sheen" cx=".3" cy=".2" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".3"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="fg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<mask id="fade"><rect x="200" y="200" width="624" height="624" fill="url(#fg)"/></mask>
+<filter id="glow" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="7"/></filter>
+<clipPath id="lens"><circle cx="512" cy="512" r="262"/></clipPath>
+<g id="lines" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M400 400 H624 V640 H400 Z"/>
+<path d="M400 400 L200 150 M624 400 L824 150 M400 640 L200 874 M624 640 L824 874"/>
+<rect x="452" y="440" width="120" height="110"/><path d="M512 440 V550 M452 495 H572"/>
+</g>
+</defs>
+<rect width="1024" height="1024" fill="url(#bg)"/>
+<circle cx="512" cy="512" r="330" fill="url(#ring1)"/>
+<circle cx="512" cy="512" r="300" fill="url(#ring2)"/>
+<circle cx="512" cy="512" r="278" fill="#000"/>
+<g clip-path="url(#lens)">
+<rect x="200" y="150" width="624" height="724" fill="#222"/>
+<polygon points="200,150 824,150 624,400 400,400" fill="url(#ceil)"/>
+<polygon points="200,150 400,400 400,640 200,874" fill="url(#lw)"/>
+<polygon points="824,150 624,400 624,640 824,874" fill="url(#rw)"/>
+<polygon points="200,874 824,874 624,640 400,640" fill="url(#floor)"/>
+<rect x="400" y="400" width="224" height="240" fill="url(#back)"/>
+<rect x="452" y="440" width="120" height="110" fill="url(#win)"/>
+<rect x="400" y="618" width="224" height="22" fill="#f1eee6" opacity=".85"/>
+
+<g filter="url(#glow)" opacity=".9"><use href="#lines" stroke="#ffd23f" stroke-width="12"/></g>
+<use href="#lines" stroke="#ffd23f" stroke-width="7"/>
+<circle cx="512" cy="512" r="262" fill="url(#vig)"/>
+<circle cx="512" cy="512" r="262" fill="url(#sheen)"/>
+</g>
+<circle cx="512" cy="512" r="262" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="3"/>
+</svg>
