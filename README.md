@@ -67,6 +67,11 @@ https://youngestday.github.io/pitaba/docs/pitaba-guide.pdf
 
 （元のページは `docs/guide.html`。直したら、ブラウザで開いて PDF に書き出す）
 
+インスタの DM など、PDF を添付できないところには、画像版（1ページずつ）を送ってください。
+
+- https://youngestday.github.io/pitaba/docs/pitaba-guide-1.png
+- https://youngestday.github.io/pitaba/docs/pitaba-guide-2.png
+
 ## 使い方
 
 1. iPhoneのSafariかChromeで上のURLを開き、カメラの使用を「許可」する
