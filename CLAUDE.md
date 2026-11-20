@@ -16,6 +16,7 @@
 
 ## 作るときの決まり
 - 変更のたびに `<meta name="zengo-version">` の版を上げる（形式 `YYYY.MM.DD-通し番号`。通し番号は main・develop を通して増やす）。名前の zengo は変えない（古いアプリの更新確認に使う）
+- **main に入れる（公開する）ときは、CHANGELOG.md に、前の公開からの変更を「どこがどう変わったか」で短くまとめる**（新しいものが上。利用者にわかる言葉で）
 - IndexedDB 名 `zengo`、localStorage の `bacam.` は変えない（保存データが消える）
 - ボタンの位置と大きさは、ビフォー／アフター／ON・OFF で動かさない。縦横回転後も崩れないこと
 - テストは Playwright（フェイクカメラ）。`NODE_PATH=$(npm root -g) node テスト.js`。カメラ映像を流し込むときは `--use-file-for-fake-video-capture=動画.y4m`（ffmpeg で画像から作れる）。`index.html#test` で開くと `window.__z` などのテスト用の入口が使える
