@@ -18,6 +18,8 @@
 |---|---|
 | 公開中（main） | https://youngestday.github.io/pitaba/ |
 | 試す用（develop） | https://develop.pitaba.pages.dev/ （Cloudflare Pages、プロジェクト名 `pitaba`。作者の Cloudflare アカウントには、ほかにホームページ katazuke-design.com などがある） |
+| ソースの置き場（Web 版） | GitHub の youngestday/pitaba（公開）。main＝本番、develop＝試す用。GitHub Pages が main を、Cloudflare Pages が develop を配っている。pitaba.pages.dev（develop の付かないアドレス）は Cloudflare の既定の入り口で、使っていない |
+| ソースの置き場（iPhone アプリ） | GitHub の youngestday/pitaba-ios（非公開）。作者の Mac で Xcode でビルドして iPhone に入れる（Web のアドレスはない） |
 | 配布ガイド | docs/guide.html → docs/pitaba-guide.pdf、DM 用の画像 docs/pitaba-guide-1.png・-2.png（`tools/make-guide.js` で作る） |
 | フィードバックの受け取り口 | Google Apps Script（プロジェクト「ピタBA フィードバック受付」、コードは tools/pitaba-feedback.gs）。URL は index.html の `FEEDBACK.script` |
 | フィードバックの見る場所 | 作者の Google スプレッドシートの「アプリから」タブ、写真はドライブのフォルダ「ピタBA フィードバック写真」、届くたびにメール |
